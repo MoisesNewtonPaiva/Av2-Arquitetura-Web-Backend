@@ -27,9 +27,10 @@ public class AlunoController {
     private AlunoRepository alunoRepository;
 
     @PostMapping
-    public ResponseEntity<List<Aluno>> criarAluno(@RequestBody Aluno aluno) {
-        List<Aluno> alunos = alunoRepository.findAll();
-        return ResponseEntity.ok(alunos);
+    public ResponseEntity<Aluno> criarAluno(@RequestBody Aluno aluno) {
+        Aluno novoAluno = alunoRepository.save(aluno); 
+        
+        return ResponseEntity.ok(novoAluno); 
     }
 
     @GetMapping

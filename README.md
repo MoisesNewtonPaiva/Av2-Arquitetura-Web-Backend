@@ -57,7 +57,8 @@
 1.  Um `Dockerfile` foi criado na raiz deste projeto.
 2.  No Render, um novo "Web Service" foi criado, apontando para este repositório.
 3.  O Render foi configurado para usar o `Dockerfile` para construir e rodar a imagem.
-4.  A URL da API no ar é: `https://[SUA_URL_DO_BACKEND].onrender.com`
+4.  A URL da API no ar é: `https://av2-arquitetura-web-nd87.onrender.com`
 
 ---
+
 

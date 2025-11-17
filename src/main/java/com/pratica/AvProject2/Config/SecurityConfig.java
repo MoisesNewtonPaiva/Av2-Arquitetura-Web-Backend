@@ -32,7 +32,6 @@ public class SecurityConfig {
             
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").authenticated() 
                 .anyRequest().permitAll() 
             )
             .httpBasic(Customizer.withDefaults()); 

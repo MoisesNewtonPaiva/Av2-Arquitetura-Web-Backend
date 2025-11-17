@@ -32,5 +32,31 @@ public class CursoController {
         return ResponseEntity.ok(cursos);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Curso> atualizarCurso(@PathVariable Long id, @RequestBody Curso cursoDetails) {
+        
+        return cursoRepository.findById(id)
+                .map(curso -> { 
+                    curso.setNome(cursoDetails.getNome());
+                    curso.setCargaHoraria(cursoDetails.getCargaHoraria());
+                    Curso cursoAtualizado = cursoRepository.save(curso);
+                    return ResponseEntity.ok(cursoAtualizado);
+                })
+                .orElse(ResponseEntity.notFound().build()); 
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarCurso(@PathVariable Long id) {
+        
+        return cursoRepository.findById(id)
+                .map(curso -> {
+
+                    
+                    cursoRepository.delete(curso);
+                    return ResponseEntity.ok().build(); 
+                })
+                .orElse(ResponseEntity.notFound().build()); 
+    }
     
 }
